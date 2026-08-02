@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catherine &amp; Jhon — Save the Date</title>
+<meta name="theme-color" content="#F2F1ED">
+<meta name="description" content="Catherine Milano & Jhon Cifuentes — May 25, 2027 — Ravello, Italy">
+<meta property="og:title" content="Catherine &amp; Jhon are getting married">
+<meta property="og:description" content="May 25, 2027 · Ravello, Italy · Save the date">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2F1ED;          /* sampled from the video's own background */
+    --ink:#4A5147;
+    --ink-soft:#6E7569;
+    --hair:#C9C6BC;
+    --display:"Cormorant Garamond", Georgia, serif;
+    --script:"Pinyon Script", "Cormorant Garamond", cursive;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;height:100%;background:var(--paper);}
+  body{
+    color:var(--ink); font-family:var(--display); font-weight:300;
+    overflow:hidden; -webkit-font-smoothing:antialiased;
+  }
+  .frame{position:fixed;inset:0;max-width:520px;margin:0 auto;overflow:hidden;}
+
+  /* ============ 1 + 2 · ENVELOPE AND VIDEO ARE THE SAME ELEMENT ============
+     The poster is frame one of the video, so the envelope you tap and the
+     envelope that opens are the identical picture. Nothing to match. */
+  #stage{
+    position:absolute; inset:0; z-index:10;
+    background:var(--paper);
+    transition:opacity .8s ease;
+  }
+  #video{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:contain; display:block;
+    /* the still envelope, guaranteed even where poster handling differs */
+    background:var(--paper) url(poster.jpg) center/contain no-repeat;
+  }
+  #tapLayer{
+    position:absolute; inset:0; z-index:2;
+    appearance:none; border:0; background:transparent; cursor:pointer;
+    display:block; width:100%; padding:0;
+  }
+  .stage-foot{
+    position:absolute; z-index:3; left:0; right:0;
+    bottom:calc(env(safe-area-inset-bottom) + 20px);
+    display:flex; justify-content:center; gap:18px;
+    transition:opacity .45s ease;
+  }
+  .ghost{
+    appearance:none; cursor:pointer;
+    background:rgba(242,241,237,.86); backdrop-filter:blur(6px);
+    border:1px solid rgba(74,81,71,.2); border-radius:100px;
+    color:var(--ink); font-family:var(--display);
+    font-size:.64rem; letter-spacing:.24em; text-transform:uppercase;
+    padding:11px 20px;
+  }
+  .fade{opacity:0 !important; pointer-events:none !important;}
+
+  /* ==================== 3 · INFORMATION ==================== */
+  #scene-invite{
+    position:absolute; inset:0; z-index:30;
+    background:var(--paper);
+    opacity:0; pointer-events:none;
+    overflow-y:auto; -webkit-overflow-scrolling:touch;
+    transition:opacity .9s ease;
+  }
+  #scene-invite.show{opacity:1;pointer-events:auto;}
+  .sheet{
+    min-height:100%;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:calc(env(safe-area-inset-top) + 18px) 24px calc(env(safe-area-inset-bottom) + 18px);
+  }
+  .mono{
+    align-self:flex-end; text-align:center;
+    line-height:1.1; font-size:min(5vw,1.45rem); letter-spacing:.02em;
+    margin-bottom:min(2.4vh,20px);
+  }
+  .mono .dot{display:block;font-size:.46em;margin:.2em 0;}
+
+  .headline{
+    margin:0;
+    font-size:min(13.4vw, 7.4vh, 4rem);
+    line-height:.84; letter-spacing:-.005em; font-weight:300;
+    text-transform:uppercase;
+  }
+  .headline span{display:block;}
+  .date{
+    font-family:var(--script);
+    font-size:min(12.4vw, 6.6vh, 3.5rem);
+    line-height:1; margin:-.3em 0 0 .3em;
+  }
+
+  .details{
+    margin-top:min(3.4vh,30px);
+    display:flex; flex-direction:column; gap:min(.9vh,7px);
+  }
+  .lead{margin:0;font-style:italic;font-size:min(4.3vw,1.02rem);}
+  .names{
+    margin:0; font-size:min(3.5vw,.95rem);
+    letter-spacing:.19em; text-transform:uppercase; font-weight:400;
+  }
+  .place,.follow{margin:0;font-style:italic;font-size:min(4.1vw,.98rem);}
+
+  /* the deadline: the one loud thing on the page */
+  .deadline{
+    margin:min(2.6vh,22px) 0 0;
+    padding:min(1.7vh,15px) 16px;
+    background:rgba(74,81,71,.055);
+    border-left:2px solid var(--ink);
+  }
+  .deadline .why{
+    display:block; font-style:italic; color:var(--ink-soft);
+    font-size:min(3.6vw,.9rem); line-height:1.35; margin-bottom:5px;
+  }
+  .deadline .when{
+    display:block; font-weight:500;
+    font-size:min(4.5vw,1.14rem); letter-spacing:.13em; text-transform:uppercase;
+  }
+
+  .actions{
+    margin-top:min(2.2vh,18px);
+    display:flex; flex-direction:column; gap:min(1.2vh,10px);
+  }
+  .btn{
+    display:block; text-align:center; text-decoration:none; cursor:pointer;
+    padding:min(1.9vh,15px) 18px;
+    font-family:var(--display);
+    font-size:min(3.1vw,.7rem); letter-spacing:.26em; text-transform:uppercase;
+    border:1px solid var(--ink);
+    transition:background .3s ease,color .3s ease;
+  }
+  .btn-solid{background:var(--ink);color:var(--paper);}
+  .btn-solid:hover,.btn-solid:active{background:transparent;color:var(--ink);}
+  .btn-line{background:transparent;color:var(--ink);}
+  .btn-line:hover,.btn-line:active{background:var(--ink);color:var(--paper);}
+  .btn.pending{
+    border-color:var(--hair); color:var(--ink-soft);
+    cursor:default; pointer-events:none;
+  }
+  .replay{
+    margin-top:min(1.8vh,14px); align-self:center;
+    background:none;border:0;padding:6px;cursor:pointer;
+    font-family:var(--display);color:var(--ink-soft);
+    font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    #stage,#scene-invite{transition-duration:.01ms !important;}
+  }
+  :focus-visible{outline:1.5px solid var(--ink-soft);outline-offset:3px;}
+  @keyframes lockShake{ 10%,90%{transform:translateX(-1px);} 20%,80%{transform:translateX(2px);} 30%,50%,70%{transform:translateX(-4px);} 40%,60%{transform:translateX(4px);} }
+  #lockForm.shake{animation:lockShake .5s;}
+  #lockInput.error{border-color:#a33 !important;}
+</style>
+</head>
+<body>
+
+<div id="siteLock" style="position:fixed; inset:0; z-index:99999; background:var(--paper); display:flex; align-items:center; justify-content:center; padding:24px;">
+  <form id="lockForm" style="max-width:340px; width:100%; text-align:center;">
+    <div style="font-family:var(--display); font-size:1.6rem; color:var(--ink); margin-bottom:6px;">Catherine &amp; Jhon</div>
+    <p style="font-family:var(--display); color:var(--ink-soft); font-size:.85rem; letter-spacing:.02em; margin:0 0 22px; font-style:italic;">This site is private — please enter the password to continue.</p>
+    <input id="lockInput" type="password" autocomplete="off" placeholder="Password" style="width:100%; box-sizing:border-box; padding:13px 16px; font-family:var(--display); font-size:.95rem; border:1px solid var(--hair, #C9C6BC); border-radius:0; margin-bottom:12px; background:#fff; color:var(--ink);">
+    <button type="submit" style="width:100%; padding:14px; font-family:var(--display); font-size:.78rem; letter-spacing:.24em; text-transform:uppercase; background:transparent; border:1px solid var(--ink); color:var(--ink); cursor:pointer;">Enter</button>
+    <p id="lockError" style="display:none; color:#a33; font-size:.8rem; margin-top:12px; font-family:var(--display);">Incorrect password — please try again.</p>
+  </form>
+</div>
+<script>
+(function(){
+  var PASSWORD = "Ravello2027";
+  var lock = document.getElementById('siteLock');
+  var form = document.getElementById('lockForm');
+  var input = document.getElementById('lockInput');
+  var error = document.getElementById('lockError');
+  function unlock(){
+    lock.style.display = 'none';
+    document.documentElement.style.overflow = '';
+  }
+  if (sessionStorage.getItem('rw_unlocked') === 'yes') {
+    unlock();
+  } else {
+    document.documentElement.style.overflow = 'hidden';
+  }
+  input.addEventListener('input', function(){
+    error.style.display = 'none';
+    input.classList.remove('error');
+  });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (input.value === PASSWORD) {
+      sessionStorage.setItem('rw_unlocked', 'yes');
+      unlock();
+    } else {
+      error.style.display = 'block';
+      input.classList.add('error');
+      form.classList.remove('shake');
+      void form.offsetWidth;
+      form.classList.add('shake');
+      input.value = '';
+      input.focus();
+    }
+  });
+})();
+</script>
+
+<div class="frame">
+
+  <!-- ENVELOPE → VIDEO -->
+  <section id="stage">
+    <video id="video" playsinline preload="auto" poster="poster.jpg">
+      <source src="invitation-video.mp4" type="video/mp4">
+    </video>
+    <button id="tapLayer" aria-label="Open the invitation"></button>
+    <div class="stage-foot" id="foot">
+      <button class="ghost" id="skipLink">Go straight to information</button>
+    </div>
+    <div class="stage-foot fade" id="playing">
+      <button class="ghost" id="soundBtn" hidden>Tap for sound</button>
+      <button class="ghost" id="skipVideo">Skip</button>
+    </div>
+  </section>
+
+  <!-- INFORMATION -->
+  <section id="scene-invite" aria-label="Save the date details">
+    <div class="sheet">
+      <div class="mono">C<span class="dot">•</span>J</div>
+
+      <h1 class="headline"><span>We&rsquo;re</span><span>Getting</span><span>Married</span></h1>
+      <p class="date">May 25, 2027</p>
+
+      <div class="details">
+        <p class="lead">Please save the date for the wedding of</p>
+        <p class="names">Catherine Milano &amp; Jhon Cifuentes</p>
+        <p class="place">Ravello, IT</p>
+        <p class="follow">Invitation to follow</p>
+      </div>
+
+      <p class="deadline">
+        <span class="why">Send us your mailing address so we can post your formal invitation</span>
+        <span class="when">By September 1st, 2026</span>
+      </p>
+
+      <div class="actions">
+        <a class="btn btn-solid" href="https://www.zola.com/addr/8jaqOgdGa" target="_blank" rel="noopener">Share your address</a>
+        <a class="btn btn-line" id="siteBtn" href="index.html">Our wedding website</a>
+      </div>
+
+      <button class="replay" id="replayBtn">Play the video again</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var stage=document.getElementById('stage'),
+      video=document.getElementById('video'),
+      foot=document.getElementById('foot'),
+      playing=document.getElementById('playing'),
+      soundBtn=document.getElementById('soundBtn'),
+      invite=document.getElementById('scene-invite'),
+      opened=false;
+
+  function play(){
+    var p=video.play();
+    if(p&&p.catch) p.catch(function(){ video.muted=true; soundBtn.hidden=false; video.play(); });
+  }
+  function openIt(){
+    if(opened) return; opened=true;
+    foot.classList.add('fade');
+    playing.classList.remove('fade');
+    play();
+  }
+  function showInvite(){
+    video.pause();
+    invite.classList.add('show');
+    setTimeout(function(){ stage.classList.add('fade'); },450);
+  }
+  function replay(){
+    invite.classList.remove('show');
+    stage.classList.remove('fade');
+    playing.classList.remove('fade');
+    video.currentTime=0; play();
+  }
+
+  document.getElementById('tapLayer').addEventListener('click',openIt);
+  document.getElementById('skipLink').addEventListener('click',function(e){e.stopPropagation();showInvite();});
+  document.getElementById('skipVideo').addEventListener('click',function(e){e.stopPropagation();showInvite();});
+  document.getElementById('replayBtn').addEventListener('click',replay);
+  soundBtn.addEventListener('click',function(e){
+    e.stopPropagation(); video.muted=false; soundBtn.hidden=true; video.play();
+  });
+  video.addEventListener('ended',showInvite);
+
+})();
+</script>
+</body>
+</html>
