@@ -94,8 +94,8 @@
     border-bottom:none; padding-bottom: 170px;
     -webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20200%2020%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M0%2C0%20H200%20V6%20C150%2C7.8%2050%2C4.2%200%2C6%20Z%22%20fill%3D%22black%22/%3E%3C/svg%3E");
     mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20200%2020%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M0%2C0%20H200%20V6%20C150%2C7.8%2050%2C4.2%200%2C6%20Z%22%20fill%3D%22black%22/%3E%3C/svg%3E");
-    -webkit-mask-size:100% 100%; mask-size:100% 100%; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; margin-top: -180px;}
-  .nav-inner{display:flex; align-items:center; justify-content:space-between; max-width:1280px; margin:0 auto; padding:14px 26px; gap:16px;}
+    -webkit-mask-size:100% 100%; mask-size:100% 100%; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; margin-top: -180px; pointer-events:none;}
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; max-width:1280px; margin:0 auto; padding:14px 26px; gap:16px; pointer-events:auto;}
   .nav-inner-stacked{flex-direction:column; padding:26px 26px 40px; gap:14px;}
   .nav-logo-center{display:flex; justify-content:center; text-decoration:none;}
   .nav-logo-center .brand-mark{background-color:rgba(252,251,249,.9); border-radius:999px; padding:4px;}
@@ -104,6 +104,7 @@
   .nav-links-centered a{font-size:.72rem; letter-spacing:.14em; font-weight:400;}
   .nav-links-centered .nav-cta{margin-left:16px;}
   @media (max-width:1040px){
+    .site-nav{height:auto !important; margin-top:0 !important; margin-bottom:0 !important; padding-bottom:0 !important; -webkit-mask-image:none !important; mask-image:none !important; pointer-events:auto;}
     .nav-inner-stacked{flex-direction:row; align-items:center; justify-content:space-between; padding:14px 20px;}
     .nav-logo-center{justify-content:flex-start;}
   }
@@ -131,15 +132,16 @@
     .nav-links a{padding:8px 6px; font-size:.68rem; letter-spacing:.02em;}
   }
   @media (max-width:1040px){
-    .nav-links{position:fixed; top:64px; left:0; right:0; bottom:0; background:var(--cream); flex-direction:column; align-items:stretch; padding:16px 20px 32px; gap:2px; transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; overflow-y:auto; z-index:99;}
+    .nav-links{position:fixed; top:0; left:0; right:0; bottom:0; background:var(--cream); flex-direction:column; align-items:stretch; flex-wrap:nowrap; justify-content:flex-start; padding:80px 20px 32px; gap:0; transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; overflow-y:auto; z-index:199; border:none;}
     .nav-links.open{opacity:1; transform:translateY(0); pointer-events:auto;}
-    .nav-links a{padding:16px 14px; font-size:1.02rem; letter-spacing:.05em; width:100%;}
+    .nav-links li{width:100%; display:block;}
+    .nav-links a{padding:16px 14px; font-size:1.02rem; letter-spacing:.05em; width:100%; display:block; border-radius:0; margin:0; border-bottom:1px solid var(--line);}
     .nav-cta{margin:12px 14px 0; text-align:center; padding:14px 20px !important;}
-    .nav-toggle{display:block;}
+    .nav-toggle{display:block; position:relative; z-index:201;}
   }
 
   /* ============ HERO ============ */
-  .hero{position:relative; overflow:hidden; min-height:62vh; display:flex; align-items:flex-end; justify-content:center; padding:110px 24px 56px;}
+  .hero{position:relative; overflow:hidden; min-height:62vh; display:flex; align-items:center; justify-content:center; padding:110px 24px 56px;}
   .hero-bg{position:absolute; inset:0; z-index:0;}
   .hero-bg img{width:100%; height:100%; object-fit:cover; object-position:50% 40%; display:block;}
   .hero-scrim{position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(58,68,51,.42) 0%, rgba(58,68,51,.34) 30%, rgba(58,68,51,.4) 55%, rgba(40,47,35,.72) 100%);}
@@ -321,7 +323,7 @@
   .track-title{font-family:var(--ff-serif); font-size:1.3rem; text-align:center; color:var(--olive-deep); margin:34px 0 6px;}
   .track-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-width:720px; margin:0 auto;}
   .track-btn{width:100%; justify-content:center; text-align:center; font-size:.78rem; padding:13px 14px;}
-  @media (max-width:700px){ .track-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:700px){ .track-grid{grid-template-columns:1fr;} }
 
   /* ============ check cards (Passport) ============ */
   .check-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-md); padding:26px; display:flex; gap:16px; box-shadow:0 10px 24px -18px rgba(21,21,19,0.25);}
@@ -681,8 +683,8 @@
         <div><div class="cc-num" id="cd-secs">--</div><div class="cc-unit">Secs</div></div>
       </div>
       <p class="cc-note">The date is set — we'll add ceremony and reception times as they're finalized.</p>
-      <a class="btn btn-dark" style="width:75%; justify-content:center; margin-top:18px;" id="gcalBtn" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
-      <button class="btn btn-dark" style="width:75%; justify-content:center; margin-top:18px;" id="icsBtn">Add to Apple Calendar</button>
+      <a class="btn btn-dark" style="width:90%; justify-content:center; margin:18px auto 0; display:flex;" id="gcalBtn" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
+      <button class="btn btn-dark" style="width:90%; justify-content:center; margin:12px auto 0; display:flex;" id="icsBtn">Add to Apple Calendar</button>
  
     </div>
 
