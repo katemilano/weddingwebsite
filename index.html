@@ -41,7 +41,8 @@
     --ff-mono:'IBM Plex Mono', monospace;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; scroll-padding-top:125px;}
+  @media (max-width:1040px){ html{scroll-padding-top:52px;} }
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation-duration:.001ms !important; transition-duration:.001ms !important;} }
   body{
     margin:0; font-family:var(--ff-sans); color:var(--ink); background:var(--cream);
