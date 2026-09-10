@@ -282,6 +282,99 @@
 
   /* ============ Framed detail card (image-4 inspired) ============ */
   .framed-card{background:var(--paper); border:1px solid var(--line); padding:34px 30px; border-radius:2px; position:relative; border-top:2px solid var(--olive);}
+  .guide-list{list-style:none; margin:14px 0 0; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .guide-list li{font-size:.9rem; line-height:1.5; color:var(--ink-soft); padding-left:16px; position:relative;}
+  .guide-list li::before{content:'—'; position:absolute; left:0; color:var(--olive);}
+  .guide-list strong{color:var(--olive-deep); font-weight:600;}
+  .guide-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  @media (max-width:900px){ .guide-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:620px){ .guide-grid{grid-template-columns:1fr;} }
+  .guide-card{background:var(--paper); border-radius:3px; padding:36px 28px; text-align:center; box-shadow:0 8px 24px -14px rgba(21,21,19,.2); transition:transform .3s ease, box-shadow .3s ease; position:relative; overflow:hidden;}
+  .guide-card:hover{transform:translateY(-6px); box-shadow:0 20px 36px -16px rgba(21,21,19,.32);}
+  .guide-card::before{content:''; position:absolute; top:0; left:0; right:0; height:5px;}
+  .guide-card .fc-code{display:block; margin-bottom:6px;}
+  .guide-card h3{font-size:1.15rem; margin-bottom:4px;}
+  .guide-card .guide-list{text-align:left; margin-top:18px;}
+  .guide-icon{width:60px; height:60px; margin:0 auto 16px; border-radius:50%; display:flex; align-items:center; justify-content:center;}
+  .guide-icon svg{width:30px; height:30px;}
+  .guide-olive::before{background:var(--olive);}
+  .guide-olive .guide-icon{background:var(--olive-pale); color:var(--olive-deep);}
+  .guide-olive .fc-code{color:var(--olive-deep);}
+  .guide-terracotta::before{background:var(--terracotta);}
+  .guide-terracotta .guide-icon{background:#F3E9DE; color:var(--terracotta);}
+  .guide-terracotta .fc-code{color:var(--terracotta);}
+  .guide-sea::before{background:var(--sea-deep);}
+  .guide-sea .guide-icon{background:var(--sea-pale); color:var(--sea-deep);}
+  .guide-sea .fc-code{color:var(--sea-deep);}
+  .guide-lilac::before{background:var(--lilac-deep);}
+  .guide-lilac .guide-icon{background:var(--lilac-pale); color:var(--lilac-deep);}
+  .guide-lilac .fc-code{color:var(--lilac-deep);}
+  .transport-list{max-width:820px; margin:0 auto;}
+  .transport-row{display:grid; grid-template-columns:160px 1fr; gap:32px; padding:28px 0; border-bottom:1px solid var(--line);}
+  .transport-row:first-child{border-top:1px solid var(--line);}
+  .transport-tag{font-family:var(--ff-mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--sea-deep); padding-top:3px;}
+  .transport-body h4{font-family:var(--ff-serif); font-size:1.15rem; color:var(--olive-deep); margin:0 0 8px; font-weight:500;}
+  .transport-body p{font-size:.92rem; color:var(--ink-soft); line-height:1.65; margin:0 0 10px;}
+  .transport-body p:last-child{margin-bottom:0;}
+  .transport-body a{color:var(--olive-deep); text-decoration:underline; text-underline-offset:2px;}
+  .transport-note{font-style:italic; font-size:.85rem !important;}
+  .transport-callout{max-width:820px; margin:40px auto 0; display:flex; gap:16px; align-items:flex-start; background:var(--sea-pale); border-left:3px solid var(--sea-deep); padding:20px 24px; border-radius:2px;}
+  .transport-callout svg{width:22px; height:22px; flex-shrink:0; color:var(--sea-deep); margin-top:2px;}
+  .transport-callout p{margin:0; font-size:.9rem; color:var(--ink-soft); line-height:1.6;}
+  .transport-callout strong{color:var(--olive-deep);}
+  .hotel-group{max-width:820px; margin:0 auto 44px;}
+  .hotel-group:last-of-type{margin-bottom:0;}
+  .hotel-group-title{font-family:var(--ff-mono); font-size:.75rem; letter-spacing:.16em; text-transform:uppercase; color:var(--terracotta); margin-bottom:22px;}
+  .hotel-list{display:flex; flex-direction:column; gap:20px;}
+  .hotel-row{padding-bottom:18px; border-bottom:1px solid var(--line);}
+  .hotel-row:last-child{border-bottom:none; padding-bottom:0;}
+  .hotel-main{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:8px 16px; margin-bottom:6px;}
+  .hotel-main a, .hotel-name{font-family:var(--ff-serif); font-size:1.1rem; font-weight:500; color:var(--olive-deep); text-decoration:none;}
+  .hotel-main a:hover{text-decoration:underline;}
+  .hotel-arrow{font-size:.85rem; opacity:.6;}
+  .hotel-walk{font-family:var(--ff-mono); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); white-space:nowrap;}
+  .hotel-row p{margin:0; font-size:.9rem; color:var(--ink-soft); line-height:1.6; max-width:640px;}
+  .hotel-card-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:stretch;}
+  @media (max-width:900px){ .hotel-card-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:620px){ .hotel-card-grid{grid-template-columns:1fr;} }
+  .hotel-card{background:var(--paper); border:1px solid var(--line); border-top:3px solid var(--olive); border-radius:3px; padding:26px 24px; display:flex; flex-direction:column; box-shadow:0 6px 18px -12px rgba(21,21,19,.18); transition:transform .25s ease, box-shadow .25s ease; height:400px;}
+  .hotel-card:hover{transform:translateY(-4px); box-shadow:0 16px 30px -14px rgba(21,21,19,.28);}
+  .hotel-card-lux{background:var(--paper);}
+  .hotel-card .hotel-walk{font-family:var(--ff-mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--sea-deep); background:var(--sea-pale); align-self:flex-start; padding:4px 10px; border-radius:999px; margin-bottom:12px;}
+  .hotel-card h4{font-family:var(--ff-serif); font-size:1.15rem; font-weight:500; color:var(--olive-deep); margin:0 0 4px; line-height:1.25;}
+  .hotel-stars{color:var(--terracotta); font-size:.8rem; letter-spacing:.1em; margin-bottom:10px; display:block;}
+  .hotel-card p{font-size:.87rem; color:var(--ink-soft); line-height:1.6; margin:0 0 14px; flex-grow:1; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;}
+  .hotel-price{font-family:var(--ff-mono); font-size:.78rem; font-weight:600; color:var(--olive-deep); margin-bottom:14px; display:block;}
+  .hotel-btn{font-size:.68rem !important; padding:10px 18px !important; align-self:flex-start;}
+  .hotel-card{min-height:100%;}
+  .hotel-group-title{display:flex; align-items:center; gap:10px;}
+  .hotel-group-title::after{content:''; flex:1; height:1px; background:var(--line);}
+  #stay{padding-top:130px; padding-bottom:130px;}
+  #stay .wrap{max-width:1200px;}
+  .hotel-card-deal{background:var(--paper); position:relative;}
+  .hotel-deal-badge{align-self:flex-start; background:var(--terracotta); color:var(--paper); font-family:var(--ff-mono); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; padding:4px 10px; border-radius:999px; margin-bottom:12px;}
+  .group-rate-panel{max-width:920px; margin:0 auto 56px; background:var(--paper); border:1px solid var(--terracotta); border-radius:6px; padding:46px 44px; box-shadow:0 20px 44px -20px rgba(90,66,42,.25); position:relative; overflow:hidden;}
+  .group-rate-panel::before{content:''; position:absolute; top:0; left:0; right:0; height:6px; background:linear-gradient(90deg, var(--terracotta), var(--gold), var(--terracotta));}
+  .group-rate-header{text-align:center; margin-bottom:28px;}
+  .group-rate-eyebrow{font-family:var(--ff-sans); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--terracotta); font-weight:600; display:block; margin-bottom:8px;}
+  .group-rate-header h3{font-family:var(--ff-serif); font-size:clamp(1.6rem,3vw,2.1rem); color:var(--olive-deep); margin:0 0 14px; font-weight:500;}
+  .group-rate-header p{max-width:600px; margin:0 auto; color:var(--ink-soft); font-size:.95rem; line-height:1.7;}
+  .group-rate-code{display:flex; flex-direction:column; align-items:center; gap:4px; margin:0 auto 36px; background:var(--olive-pale); border:1.5px dashed var(--olive-deep); border-radius:4px; padding:18px 32px; max-width:280px;}
+  .group-rate-code-label{font-family:var(--ff-mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft);}
+  .group-rate-code-value{font-family:var(--ff-mono); font-size:1.7rem; letter-spacing:.1em; font-weight:700; color:var(--olive-deep);}
+  .group-rate-tables{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:32px;}
+  @media (max-width:700px){ .group-rate-tables{grid-template-columns:1fr;} }
+  .group-rate-table{background:var(--cream); border-radius:4px; padding:24px;}
+  .group-rate-table h4{font-family:var(--ff-serif); font-size:1.1rem; color:var(--olive-deep); margin:0 0 14px; font-weight:500;}
+  .rate-note{font-size:.72rem; color:var(--ink-soft); font-weight:400; font-style:italic;}
+  .rate-line{display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding:10px 0; border-bottom:1px solid var(--line); font-size:.87rem; color:var(--ink-soft);}
+  .rate-line:last-child{border-bottom:none;}
+  .rate-line strong{color:var(--olive-deep); font-family:var(--ff-mono); font-size:.85rem; white-space:nowrap;}
+  .group-rate-footer{border-top:1px solid var(--line); padding-top:24px; display:flex; flex-direction:column; gap:10px;}
+  .group-rate-detail{font-size:.85rem; color:var(--ink-soft); line-height:1.6;}
+  .group-rate-detail strong{color:var(--olive-deep);}
+  @media (max-width:640px){ .group-rate-panel{padding:32px 24px;} }
+  @media (max-width:640px){ .transport-row{grid-template-columns:1fr; gap:8px;} }
   .framed-card h3{margin-bottom:6px;}
   .framed-card .fc-code{font-family:var(--ff-mono); font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--terracotta); display:block; margin-bottom:10px;}
   .framed-card ul{list-style:none; margin:16px 0 0; padding:0;}
@@ -471,17 +564,14 @@
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <ul class="nav-links nav-links-centered" id="navLinks">
       <li><a href="#top">Home</a></li>
-      <li><a href="save-the-date">Save the Date</a></li>
       <li><a href="https://www.zola.com/wedding/kateandjhon/registry">Our Registry</a></li>
       <!-- <li><a href="save-the-date.html">Join Us</a></li> -->
       <!-- <li><a href="save-the-date.html">Our Special Day</a></li> -->
-      <li><a href="#venue">Villa Eva</a></li>
-
-
       <!-- <li><a href="#dress-code">Dress Code</a></li> -->
       <li><a href="#getting-there">Getting There</a></li>
-      <li><a href="#flights">Book Now!</a></li>
-      <li><a href="#passport">Passports</a></li>
+      <li><a href="#stay">Accommodations</a></li>
+      <li><a href="#guide">Things to Do</a></li>
+      <li><a href="#transportation">Transportation</a></li>
       <li><a href="#story">Our Story</a></li>
       <li><a href="#faq">FAQ</a></li>
       <!-- <li><a class="nav-cta" href="#rsvp">RSVP</a></li> -->
@@ -507,11 +597,11 @@
     <div style="font-family: var(--ff-script); font-size: 80px;">Join Us</div>
     <div style="font-family: initial; text-transform: uppercase; font-size: 20px;">Ravello, Italy</div>
     <p style="font-family: initial; text-transform: uppercase; font-size: 20px;">May 25, 2027</p>
-    <p style="font-style: italic;">Please provide your address through button below to recieve the formal invitation by September 1st 2026.</p>
+    <!-- <p style="font-style: italic;">Please provide your address through button below to recieve the formal invitation by September 1st 2026.</p>
     <div class="hero-actions" style="margin-bottom: 10%;">
       <a href="https://www.zola.com/addr/8jaqOgdGa" class="btn btn-primary">Provide Address Here</a>
     </div>
-  </div>
+  </div> -->
 </div>
 
 
@@ -600,7 +690,7 @@
         <span class="eyebrow">The Venue</span>
         <h2 style="font-size: 50px;
     font-family: var(--ff-script);">Villa Eva</h2>
-        <p class="lede">A private, early-20th-century Liberty-style residence, set at the very top of Ravello with a 360° view over the Amalfi Coast.</p>
+        <p class="lede">A private, early-20th-century residence, set at the very top of Ravello with a 360° view over the Amalfi Coast.</p>
       <!-- <div style="border-radius:2px; overflow:hidden; box-shadow:0 12px 30px -12px rgba(21,21,19,.25); border:1px solid var(--line);">
         <iframe
           src="https://www.google.com/maps?q=Villa+Eva,+Via+Santa+Chiara+3,+Ravello,+Italy&output=embed"
@@ -765,7 +855,7 @@
 
       <div class="fare-status" id="fareStatus">
         <span class="fare-status-dot"></span>
-        <span>Fares are <strong>up about 4%</strong> over the last month — <strong>booking now</strong> beats waiting, based on this trend.</span>
+        <span id="fareStatusText">Fares are <strong>up about 4%</strong> over the last month — <strong>booking now</strong> beats waiting, based on this trend.</span>
       </div>
 
       <div class="chart-wrap">
@@ -813,7 +903,7 @@
       <div class="grid-2 mt-lg">
         <div class="check-card"><div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M15 8h3M15 12h3M6 17h12"/></svg></div><div><h4>Passport validity</h4><p>Valid at least 3 months past your departure date from Italy — 6 months recommended.</p></div></div>
         <div class="check-card"><div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div><div><h4>Visa-free entry</h4><p>US, UK, Canadian, and Australian citizens can enter visa-free for stays under 90 days.</p></div></div>
-        <div class="check-card"><div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg></div><div><h4>ETIAS <span class="tag-new">New · Late 2026</span></h4><p>A quick online travel authorization begins rolling out for visa-exempt travelers later this year.</p></div></div>
+        <div class="check-card"><div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6-5.5-3-5.5 3 1-6L3 8.9 9 8z"/></svg></div><div><h4>ETIAS <span class="tag-new">New · Late 2026</span></h4><p>A quick online travel authorization begins rolling out for visa-exempt travelers later this year. It's a short online form (not a visa) — apply at least a few days before you fly. Details and the official application will be at <a href="https://travel-europe.europa.eu/etias_en" target="_blank" rel="noopener">travel-europe.europa.eu/etias</a>.</p></div></div>
         <div class="check-card"><div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 3a9 9 0 0 1 0 18"/></svg></div><div><h4>Other nationalities</h4><p>Italy's visa-free list is broad but not universal, check requirements for your specific passport.</p></div></div>
       </div>
     </div>
@@ -850,7 +940,332 @@
   <svg viewBox="0 0 800 30" preserveAspectRatio="none"><path d="M0,0 Q 16.66,26 33.33,0 T 66.66,0 T 100,0 T 133,0 T 166,0 T 200,0 T 233,0 T 266,0 T 300,0 T 333,0 T 366,0 T 400,0 T 433,0 T 466,0 T 500,0 T 533,0 T 566,0 T 600,0 T 633,0 T 666,0 T 700,0 T 733,0 T 766,0 T 800,0 L800,30 L0,30 Z"/></svg>
 </div>
 
-<!-- ============ AMALFI FAVORITES (fun + quirky) ============ -->
+<!-- ============ THINGS TO DO ============ -->
+<section class="section band-olive" id="guide">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Things to Do</span>
+      <h2>Make a trip of it.</h2>
+      <p class="lede center">The Amalfi Coast rewards a few extra days. Here are our favorites, organized so it's easy to pick a few and go — a fuller guide with directions and booking links will follow with the formal invitation.</p>
+    </div>
+
+    <div class="guide-grid mt-lg">
+      <div class="guide-card guide-olive">
+        <div class="guide-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M24 44s14-11.5 14-23a14 14 0 0 0-28 0c0 11.5 14 23 14 23z"/><circle cx="24" cy="21" r="5"/></svg></div>
+        <span class="fc-code">Explore Ravello</span>
+        <h3>On foot, close to home</h3>
+        <ul class="guide-list">
+          <li><strong>Piazza Duomo</strong> — Ravello's main square and cathedral</li>
+          <li><strong>Villa Rufolo</strong> — 13th-century gardens with coastal views</li>
+          <li><strong>Villa Cimbrone</strong> — the famous Terrace of Infinity</li>
+          <li><strong>Piazza Vescovado</strong> — local ceramics, shops &amp; mountain views</li>
+        </ul>
+      </div>
+      <div class="guide-card guide-terracotta">
+        <div class="guide-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 20c0-6 6-10 14-10s14 4 14 10"/><path d="M8 20h32l-2 6H10z"/><path d="M12 26v12M36 26v12M18 26v12M30 26v12M24 26v12"/></svg></div>
+        <span class="fc-code">Eat &amp; Drink</span>
+        <h3>Where to sit down</h3>
+        <ul class="guide-list">
+          <li><strong>Cumpa' Cosimo</strong> — beloved family-run trattoria, Ravello</li>
+          <li><strong>Palazzo Avino</strong> — elegant dining, sweeping views</li>
+          <li><strong>Da Gemma</strong> — seafood favorite in Amalfi</li>
+          <li><strong>Pasticceria Pansa</strong> — the coast's best sfogliatella, Amalfi</li>
+          <li><strong>Il Flauto di Pan</strong> — Michelin-starred, inside Villa Cimbrone</li>
+          <li><strong>Pizzeria Donna Stella</strong> — cozy wood-fired pizza, Amalfi</li>
+        </ul>
+      </div>
+      <div class="guide-card guide-sea">
+        <div class="guide-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 36c4-3 8-3 12 0s8 3 12 0 8-3 12 0M4 28c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/><circle cx="30" cy="14" r="6"/></svg></div>
+        <span class="fc-code">Beach Clubs</span>
+        <h3>A day by the water</h3>
+        <ul class="guide-list">
+          <li><strong>Lido di Ravello</strong> — the closest club, ~10 minutes away</li>
+          <li><strong>Marmorata</strong> — Ravello's only direct sea access</li>
+          <li><strong>Arienzo Beach</strong> — chic, reached by boat or stairs, Positano</li>
+          <li><strong>One Fire Beach</strong> — worth the steps down, Praiano</li>
+          <li><strong>Maiori Beach</strong> — the coast's largest sandy stretch</li>
+        </ul>
+      </div>
+      <div class="guide-card guide-lilac">
+        <div class="guide-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 40 18 18l8 12 6-8 10 18z"/><circle cx="34" cy="10" r="4"/></svg></div>
+        <span class="fc-code">Hikes &amp; Trails</span>
+        <h3>For the coastal views</h3>
+        <ul class="guide-list">
+          <li><strong>Path of the Gods</strong> — the coast's most iconic hike</li>
+          <li><strong>Ravello to Minori</strong> — an easy walk through lemon groves</li>
+          <li><strong>Ravello to Amalfi</strong> — mostly downhill via Atrani, ~2 hours</li>
+          <li><strong>Path of the Lemons</strong> — Ravello to Maiori, about an hour</li>
+          <li><strong>Monte Cerreto</strong> — a steeper climb for experienced hikers, with expansive views</li>
+        </ul>
+      </div>
+      <div class="guide-card guide-olive">
+        <div class="guide-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M24 4v10M24 34v10M4 24h10M34 24h10"/><circle cx="24" cy="24" r="10"/></svg></div>
+        <span class="fc-code">Day Trips</span>
+        <h3>Worth the extra time</h3>
+        <ul class="guide-list">
+          <li><strong>Capri &amp; the Blue Grotto</strong> — a classic day on the water</li>
+          <li><strong>Positano</strong> — the coast's most photographed town</li>
+          <li><strong>Pompeii</strong> — ancient ruins, easy day trip from Naples</li>
+          <li><strong>Furore Beach</strong> — a dramatic fjord-like cove, best reached by boat</li>
+          <li><strong>Amalfi Sea Kayak Tour</strong> — paddle the coastline from Amalfi town</li>
+        </ul>
+      </div>
+      <div class="guide-card guide-terracotta">
+        <div class="guide-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 20c0-6 4-12 10-12s10 6 10 12" /><path d="M10 20h28l-3 20H13z"/><path d="M20 26v8M28 26v8" stroke-dasharray="2 2"/></svg></div>
+        <span class="fc-code">Cooking Classes</span>
+        <h3>Bring a recipe home</h3>
+        <ul class="guide-list">
+          <li><strong>Mamma Agata's</strong> — full-course class ending with lunch by the sea</li>
+          <li><strong>Villa Maria Cooking School</strong> — hands-on Neapolitan pizza-making class</li>
+          <li><strong>Villa Maria's Full Menu Course</strong> — a 3-hour, 4-course Italian cooking class</li>
+          <li><strong>Amalfi Lemon Experience</strong> — farm tour, cooking &amp; limoncello tasting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRANSPORTATION ============ -->
+<section class="section" id="transportation">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow eyebrow-sea">Getting Around</span>
+      <h2>Transportation once you're here.</h2>
+      <p class="lede center">Most of the Amalfi Coast is easily reached by train, ferry, or car — here's how we'd suggest getting between towns, and to and from the airport.</p>
+    </div>
+
+    <div class="transport-list mt-lg">
+
+      <div class="transport-row">
+        <div class="transport-tag">By Train</div>
+        <div class="transport-body">
+          <h4>Naples or Salerno, then a transfer</h4>
+          <p>Italy's two high-speed rail operators, Trenitalia and Italo, both run frequent trains into Napoli Centrale. From there, a private transfer or taxi takes about an hour to reach Ravello. There's also a station in Salerno at an equal distance, though trains run less frequently.</p>
+          <p>Tickets can be booked at <a href="https://www.trenitalia.com/it.html" target="_blank" rel="noopener">trenitalia.com</a>, <a href="https://www.italotreno.com/it" target="_blank" rel="noopener">italotreno.com</a>, <a href="https://www.omio.com/" target="_blank" rel="noopener">omio.com</a>, or <a href="https://www.italiarail.com/" target="_blank" rel="noopener">italiarail.com</a>.</p>
+          <p class="transport-note">Strikes occur occasionally in Italy but are scheduled in advance — check <a href="https://www.italiarail.com/strike-information" target="_blank" rel="noopener">current strike information</a> before you travel.</p>
+        </div>
+      </div>
+
+      <div class="transport-row">
+        <div class="transport-tag">By Ferry</div>
+        <div class="transport-body">
+          <h4>Naples, Sorrento, or Positano to Amalfi</h4>
+          <p>A scenic and popular option — book ferry tickets to Amalfi at <a href="https://www.misterferry.com" target="_blank" rel="noopener">misterferry.com</a>. Once in Amalfi, Ravello is just a 15-minute drive or bus ride uphill. The public bus company is SITA; tickets are available at local tabacchi shops or through the Unico Campania app.</p>
+        </div>
+      </div>
+
+      <div class="transport-row">
+        <div class="transport-tag">Taxi &amp; Uber</div>
+        <div class="transport-body">
+          <h4>Available at both Rome and Naples airports</h4>
+          <p>Uber can be booked directly through the app, which will guide you to the pickup area. For taxis, head to the designated stand outside arrivals — confirm your destination and total fare with the driver before getting in. Most taxis accept cards, but it's worth carrying cash as a backup.</p>
+          <p>A flat rate of roughly <strong>€150</strong> applies from Naples Airport to Ravello.</p>
+        </div>
+      </div>
+
+      <div class="transport-row">
+        <div class="transport-tag">Public Bus</div>
+        <div class="transport-body">
+          <h4>Affordable, but plan around peak hours</h4>
+          <p>The SITA bus runs up and down the Amalfi Coast and is an inexpensive way to get around. During peak hours, buses can be delayed or crowded, which makes traveling with larger luggage more difficult — better suited to day trips than airport transfers.</p>
+        </div>
+      </div>
+
+      <div class="transport-row">
+        <div class="transport-tag">Private Transfers</div>
+        <div class="transport-body">
+          <h4>Our recommendation for the smoothest arrival</h4>
+          <p>We'd suggest contacting your hotel's concierge to arrange a private car — we've found this to be the easiest and most reliable way to book transportation in Italy, especially coming from the airport.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="transport-callout mt-lg">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+      <p><strong>We don't recommend renting a car</strong> on the Amalfi Coast — the roads are narrow and winding, and parking is very limited. If you'd still like to drive, please arrange parking with your hotel well in advance.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ WHERE TO STAY ============ -->
+<section class="section band-olive" id="stay">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">Where to Stay</span>
+      <h2>A few of our favorite hotels.</h2>
+      <p class="lede center">Ravello is small and walkable, so most hotels are within an easy stroll of Villa Eva. Here's a curated list to help you book — organized by distance, with links to each hotel's site.</p>
+    </div>
+
+    <div class="group-rate-panel mt-lg">
+      <div class="group-rate-header">
+        <span class="group-rate-eyebrow">Exclusive to Our Guests</span>
+        <h3>A group rate at Villa Maria &amp; Hotel Giordano</h3>
+        <p>Our sister hotels have set aside a block of rooms for wedding guests at a discounted group rate. Enter the code below in the <strong>Promotional Code</strong> field (listed as <em>"codice promozionale"</em>) when booking directly — the same code works for both hotels.</p>
+      </div>
+
+      <div class="group-rate-code">
+        <span class="group-rate-code-label">Group Code</span>
+        <span class="group-rate-code-value">PRIMAVERA</span>
+      </div>
+
+      <div class="group-rate-tables">
+        <div class="group-rate-table" >
+          <h4>Hotel Villa Maria</h4>
+          <div class="rate-line"><span>Comfort Double Rooms, partial sea view</span><strong>4 available</strong></div>
+          <a class="btn btn-ghost hotel-btn" style="display: ruby-text; margin-top: 60px;" href="https://www.villamaria.it/" target="_blank" rel="noopener">Book Here</a>
+        </div>
+       
+        <div class="group-rate-table">
+          
+          <h4>Hotel Giordano <span class="rate-note">(no sea view)</span></h4>
+          <div class="rate-line"><span>Comfort Double Rooms</span><strong>4 available</strong></div>
+          <div class="rate-line"><span>Superior Double Room</span><strong>1 available</strong></div>
+          <a class="btn btn-ghost hotel-btn" style="display: ruby-text; margin-top: 20px;" href="https://www.giordanohotel.it/" target="_blank" rel="noopener">Book Here</a>
+        </div>
+      </div>
+
+      <div class="group-rate-footer">
+        <div class="group-rate-detail"><strong>Please note:</strong> Minimuim 3 night stay, these rates are non-refundable, though optional insurance can be added at the time of booking.</div>
+      </div>
+    </div>
+
+    <p class=" center" style="margin: 0 auto; padding-bottom: 50px;max-width: 900px;"><strong>A quick note before you book:</strong> prices listed here are rough estimates and can change based on availability and season, so please treat them as a starting point rather than a guarantee. Several hotels in Ravello require a minimum stay of 2–3 nights during wedding season, and a few may not open their May 2027 booking calendars until closer to the date, if a hotel's site doesn't show availability yet, it's worth checking back in a few months or reaching out directly. Cancellation policies also vary by hotel, so we'd recommend confirming the terms before booking. Rooms in Ravello go quickly in the spring, so earlier is better!</p>
+    <div class="hotel-group hotel-group-closest mt-lg">
+      <h3 class="hotel-group-title">Closest to the Venue</h3>
+      <div class="hotel-card-grid">
+        <div class="hotel-card hotel-card-deal" >
+          <span class="hotel-deal-badge">Group Code Available</span>
+          <span class="hotel-walk">~2 min walk to Villa Eva</span>
+          <h4>Villa Maria</h4>
+          <span class="hotel-stars">★★★★</span>
+          <p>A sister property to Villa Eva on the same street as the venue — a lovely, convenient option for the weekend.</p>
+          <span class="hotel-price">Est. €350–€550/night</span>
+          <a class="btn btn-ghost hotel-btn" href="https://www.villamaria.it/" target="_blank" rel="noopener">Visit Website</a>
+        </div>
+        <div class="hotel-card hotel-card-deal">
+          <span class="hotel-deal-badge">Group Code Available</span>
+          <span class="hotel-walk">~5 min walk to Villa Eva</span>
+          <h4>Hotel Giordano</h4>
+          <span class="hotel-stars">★★★★</span>
+          <p>Another sister property to Villa Eva, with beautiful gardens and an outdoor pool.</p>
+          <span class="hotel-price">Est. €315–500/night</span>
+          <a class="btn btn-ghost hotel-btn" href="https://www.giordanohotel.it/" target="_blank" rel="noopener">Visit Website</a>
+        </div>
+        <div class="hotel-card">
+          <span class="hotel-walk">~5 min walk to Villa Eva</span>
+          <h4>Hotel Rufolo</h4>
+          <span class="hotel-stars">★★★★</span>
+          <p>An elegant hotel just above the Villa Rufolo gardens, with panoramic terraces and a pool.</p>
+          <span class="hotel-price">Est. €350–550/night</span>
+          <a class="btn btn-ghost hotel-btn" href="https://www.hotelrufolo.com/" target="_blank" rel="noopener">Visit Website</a>
+        </div>
+        <div class="hotel-card">
+          <span class="hotel-walk">10 min walk to Villa Eva</span>
+          <h4>Hotel Bonadies</h4>
+          <span class="hotel-stars">★★★★</span>
+          <p>A family-run historic hotel just off Piazza Fontana Moresca, with sea or mountain views and a pool.</p>
+          <span class="hotel-price">Est. €350–550/night</span>
+          <a class="btn btn-ghost hotel-btn" href="https://www.hotelbonadies.com/" target="_blank" rel="noopener">Visit Website</a>
+        </div>
+        <div class="hotel-card">
+          <span class="hotel-walk">10 min walk to Villa Eva</span>
+          <h4>Garden Hotel</h4>
+          <span class="hotel-stars">★★★</span>
+          <p>A relaxed boutique hotel a few steps from the main Piazza and Cathedral, with sea-view rooms — can be booked exclusively for groups.</p>
+          <span class="hotel-price">Est. €200–350/night</span>
+          <a class="btn btn-ghost hotel-btn" href="https://www.gardenravello.com/" target="_blank" rel="noopener">Visit Website</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hotel-group hotel-group-further mt-lg">
+      <h3 class="hotel-group-title">A Little Further</h3>
+      <div class="hotel-card-grid">
+        <div class="hotel-card">
+          <span class="hotel-walk">12 min walk to Villa Eva</span>
+          <h4>Hotel Graal</h4>
+          <span class="hotel-stars">★★★★</span>
+          <p>A family-run hotel with a beautiful pool, tucked into the heart of Ravello.</p>
+          <span class="hotel-price">Est. €200–450/night</span>
+          <a class="btn btn-ghost hotel-btn" href="https://www.hotelgraal.it/" target="_blank" rel="noopener">Visit Website</a>
+        </div>
+        <div class="hotel-card">
+          <span class="hotel-walk">15 min walk to Villa Eva</span>
+          <h4>Hotel Villa Fraulo</h4>
+          <span class="hotel-stars">★★★★</span>
+          <p>Set in a medieval villa with an infinity pool — very close to the ceremony location.</p>
+          <span class="hotel-price">Est. €300–400/night</span>
+          <a class="btn btn-ghost hotel-btn" href="https://www.villafraulo.com/" target="_blank" rel="noopener">Visit Website</a>
+        </div>
+        <div class="hotel-card">
+          <span class="hotel-walk">15 min walk to Villa Eva</span>
+          <h4>Villa Piedimonte</h4>
+          <span class="hotel-stars">★★★★</span>
+          <p>A newly established property inside a 12th-century villa, steps from the Auditorium Oscar Niemeyer, with panoramic views and a pool.</p>
+          <span class="hotel-price">Est. €280–380/night</span>
+          <a class="btn btn-ghost hotel-btn" href="https://www.villapiedimonte.com/" target="_blank" rel="noopener">Visit Website</a>
+        </div>
+        <div class="hotel-card">
+          <span class="hotel-walk">~10 min walk to Villa Eva</span>
+          <h4>Hotel Parsifal</h4>
+          <span class="hotel-stars">★★★</span>
+          <p>Modern comfort, with terraces that are a guest favorite for taking in the views.</p>
+          <span class="hotel-price">Est. €150–200/night</span>
+          <a class="btn btn-ghost hotel-btn" href="https://hotelparsifal.it/" target="_blank" rel="noopener">Visit Website</a>
+        </div>
+        <div class="hotel-card">
+          <span class="hotel-walk">~30 min walk to Villa Eva</span>
+          <h4>Hotel Marmorata</h4>
+          <span class="hotel-stars">★★★★</span>
+          <p>A seaside hotel set in a former paper mill, with direct beach access — a lovely option if you'd like to be closer to the water.</p>
+          <span class="hotel-price">Est. €250–350/night</span>
+          <a class="btn btn-ghost hotel-btn" href="https://hotelmarmorata.com/" target="_blank" rel="noopener">Visit Website</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hotel-group mt-lg">
+      <h3 class="hotel-group-title">For a Splurge</h3>
+      
+      <div class="hotel-card-grid">
+        <div class="hotel-card">
+          <span class="hotel-walk">5 min walk to Villa Eva</span>
+          <h4>Villa Cimbrone</h4>
+          <span class="hotel-stars">★★★★★</span>
+          <p>Home to the picturesque Villa Cimbrone Gardens, with stunning coastal views, original rooms, and an on-site pool.</p>
+          <span class="hotel-price">Est. €600–900/night</span>
+          <a class="btn btn-ghost hotel-btn" href="https://www.hotelvillacimbrone.com/" target="_blank" rel="noopener">Visit Website</a>
+        </div>
+        <div class="hotel-card hotel-card-lux">
+          <span class="hotel-walk">~12 min walk to Villa Eva</span>
+          <h4>Caruso, A Belmond Hotel</h4>
+          <span class="hotel-stars">★★★★★</span>
+          <p>A top luxury spa hotel set at the highest point in Ravello, with a spa, infinity pool, fitness center, and spectacular coastal views.</p>
+          <span class="hotel-price">Est. €900–1,400/night</span>
+          <a class="btn btn-ghost hotel-btn" href="https://www.belmond.com/en/hotels/europe/italy/caruso-amalfi-coast" target="_blank" rel="noopener">Visit Website</a>
+        </div>
+        <div class="hotel-card hotel-card-lux">
+          <span class="hotel-walk">~12 min walk to Villa Eva</span>
+          <h4>Palazzo Avino</h4>
+          <span class="hotel-stars">★★★★★</span>
+          <p>A stunning deluxe hotel rated among the world's finest, perched high on the cliffs with sweeping views of the coast's most picturesque villages.</p>
+          <span class="hotel-price">Est. €800–1,200/night</span>
+          <a class="btn btn-ghost hotel-btn" href="https://www.palazzoavino.com/" target="_blank" rel="noopener">Visit Website</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="transport-callout mt-lg">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-6 7 6v12M9 21v-6h6v6"/></svg>
+      <p><strong>Traveling as a group?</strong> Airbnb and VRBO have several affordable options and are often the easiest way for larger groups to stay together. If you're renting a car or scooter, just double-check that your rental offers parking.</p>
+    </div>
+
+  </div>
+</section>
+
+
 <!-- <section class="section-tight">
   <div class="wrap">
     <div class="center">
@@ -931,11 +1346,15 @@
       <div class="acc-item open"><button class="acc-trigger"><span>Where exactly is the wedding taking place?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">At Villa Eva, a private Liberty-style villa at the top of Ravello on Italy's Amalfi Coast, details are still being finalized.</div></div></div>
       <div class="acc-item"><button class="acc-trigger"><span>When is the wedding?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">May 25, 2027, at Villa Eva in Ravello. We're still finalizing exact ceremony and reception times and will post the full itinerary here as soon as it's ready.</div></div></div>
       <div class="acc-item"><button class="acc-trigger"><span>What airport should I fly into?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">Naples (NAP) is the best choice for most guests, widest flight selection, about an hour to Ravello. Salerno (QSR) is closer but has fewer routes; Rome (FCO) works well if you're connecting from farther away. See "Getting There" above for a full breakdown.</div></div></div>
-      <div class="acc-item"><button class="acc-trigger"><span>Do I need a visa to travel to Italy?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">Most guests, including from the US, UK, Canada, and Australia, can enter Italy visa-free for stays under 90 days. Starting later in 2026, an online travel authorization called ETIAS will also be required for visa-exempt travelers. We'll share the link once applications open.</div></div></div>
+      <div class="acc-item"><button class="acc-trigger"><span>Do I need a visa to travel to Italy?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">Most guests, including from the US, UK, Canada, and Australia, can enter Italy visa-free for stays under 90 days. Starting later in 2026, an online travel authorization called ETIAS will also be required for visa-exempt travelers — it's a short form, not a visa, and typically only takes a few minutes to complete, though approval can occasionally take longer, so it's worth applying a few days before you fly. You can apply directly and find the latest requirements at the official site: <a href="https://travel-europe.europa.eu/etias_en" target="_blank" rel="noopener">travel-europe.europa.eu/etias</a>.</div></div></div>
       <div class="acc-item"><button class="acc-trigger"><span>Is my passport valid for this trip?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">It should be valid for at least 3 months past your departure date from Italy (6 months recommended), with at least 2 blank pages. Worth checking now, since renewals can take a while.</div></div></div>
       <div class="acc-item"><button class="acc-trigger"><span>Where should I stay?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">Villa Eva doesn't offer on-site accommodation, but it's a short walk from several Ravello hotels, including Villa Maria and Hotel Giordano. We're finalizing a room block and will post names and rates soon.</div></div></div>
       <div class="acc-item"><button class="acc-trigger"><span>Are children invited?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">While our wedding will be mostly adults, we know some of you may need to bring your little ones! If that's the case for your family, please reach out to us directly so we can accommodate you and get an accurate headcount.</div></div></div>
       <div class="acc-item"><button class="acc-trigger"><span>What currency should I bring, and is tipping expected?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">Euros (€)! Cards are widely accepted, but it's smart to carry some cash for small restaurants and shops. Tipping isn't obligatory, rounding up for good service is appreciated but not required.</div></div></div>
+      <div class="acc-item"><button class="acc-trigger"><span>What types of payment are accepted in the area?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">Contactless payment is widely accepted throughout the area, but we'd still recommend carrying a major credit card (Visa or Mastercard) as well as some cash in euros, just in case.</div></div></div>
+      <div class="acc-item"><button class="acc-trigger"><span>Will the reception be indoors or outdoors?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">Cocktail hour will take place across the villa's fully and partially outdoor spaces. We'll have the villa entirely to ourselves, so feel free to step inside at any point. Dinner will be held under a covered patio, and dancing will move indoors.</div></div></div>
+      <div class="acc-item"><button class="acc-trigger"><span>What will the weather be like in Ravello?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">Early October in Ravello is typically mild and pleasant, with daytime temperatures around 64–75°F (18–24°C) and cooler evenings closer to 59–64°F (15–18°C). We'd suggest packing a wrap or light cover-up for the evening.</div></div></div>
+      <div class="acc-item"><button class="acc-trigger"><span>Can I bring a guest or a date?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">Due to limited capacity at the venue, we're only able to accommodate the guests specifically named on your invitation.</div></div></div>
       <!-- <div class="acc-item"><button class="acc-trigger"><span>Will the ceremony and reception be indoors or outdoors?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">Villa Eva has both options available depending on the weather. We plan to have the ceremony inside at a local church and the reception will be outside the Villa. If rain is on the forecast, there will be an indoor/tent option.</div></div></div> -->
       <div class="acc-item"><button class="acc-trigger"><span>What should I pack?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">Comfortable walking shoes for cobblestones and hills, sun protection, a light layer for cooler evenings, and anything specific to our dress code (details coming with the full invitation).</div></div></div>
       <div class="acc-item"><button class="acc-trigger"><span>What if I have a food allergy or dietary restrictions?</span><span class="acc-icon" aria-hidden="true"></span></button><div class="acc-panel"><div class="acc-panel-inner">Please reach out to us if you have food allergies or dietary restrictions and we can make the proper accommodations. </div></div></div>
@@ -945,7 +1364,7 @@
 </section>
 
 <!-- ============ STRIPED RSVP BAND ============ -->
-<div class="rsvp-stripe-band">
+<!-- <div class="rsvp-stripe-band">
   <div class="rsvp-stripe-inner">
     <div>
       <h2>Save the Date</h2>
@@ -953,7 +1372,7 @@
     </div>
     <a href="https://www.zola.com/addr/8jaqOgdGa" class="btn btn-primary" style="background:var(--paper); color:var(--olive-deep);">Address Form</a>
   </div>
-</div>
+</div> -->
 
 <!-- ============ FOOTER / RSVP ============ -->
 <footer id="rsvp">
@@ -971,11 +1390,11 @@
         <p>May 25th, 2027</p>
         <p>Weekend events TBD</p>
       </div>
-      <div>
+      <!-- <div>
         <h4><span class="rsvp-spaced">Save the Date</span></h4>
         <p>Please let us know if you can join us by filling out address form.</p>
         <a href="https://www.zola.com/addr/8jaqOgdGa">Address form here</a>
-      </div>
+      </div> -->
       <div>
         <h4>Contact</h4>
         <p>Catherine &amp; Jhonathon</p>
@@ -994,11 +1413,14 @@
       </div>
       <div>
         <h3 style="font-size:1rem;">On this page</h3>
-        <a href="#save-the-date">Save the Date</a>
-        <a href="#story">Our Story</a>
-        <a href="#venue">Villa Eva</a>
+        <a href="https://www.zola.com/wedding/kateandjhon/registry">Our Registry</a>
+        <a href="#getting-there">Getting There</a>
+        <a href="#stay">Accommdations</a>
         <a href="#getting-there">Getting There</a>
         <a href="#entry">Passport &amp; Entry</a>
+        <a href="#guide">Things to Do</a>
+        <a href="#stay">Where to Stay</a>
+        <a href="#transportation">Transportation</a>
         <a href="#faq">FAQ</a>
       </div>
       <div>
@@ -1006,8 +1428,8 @@
         <p style="font-size:.82rem; color:var(--ink-soft); margin-top:16px;">Reach out via phone or email us with any questions or concerns!</p>
         <a href="mailto:jhonathonandkate@gmail.com">jhonathonandkate@gmail.com</a>
         <!-- <a href="#faq">Read the FAQ</a> -->
-        <p style="font-size:.82rem; color:var(--ink-soft); margin-top:16px;">Fill out address form by September 1st 2026 for formal invitation to come.</p>
-        <a href="https://www.zola.com/addr/8jaqOgdGa">Address Form</a>
+        <!-- <p style="font-size:.82rem; color:var(--ink-soft); margin-top:16px;">Fill out address form by September 1st 2026 for formal invitation to come.</p> -->
+        <!-- <a href="https://www.zola.com/addr/8jaqOgdGa">Address Form</a> -->
       </div>
     </div>
     <div class="footer-bottom">
@@ -1115,8 +1537,36 @@
   });
   window.addEventListener('resize', function(){ accItems.forEach(function(item){ if(item.classList.contains('open')) setPanel(item, true); }); });
 
+  // Dynamic price trend: seeded by today's date so the chart updates
+  // day to day instead of showing a fixed, static snapshot.
+  function seededRandom(seed){
+    return function(){
+      seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+      var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  var daySeed = Math.floor(Date.now() / 86400000); // changes once per day
+  var rand = seededRandom(daySeed);
+  var basePrice = 780 + Math.floor(rand() * 60); // ~780-840 base fare
   var months = ["4 wks ago","3 wks ago","2 wks ago","1 wk ago","Today"];
-  var values = [815, 805, 825, 840, 850];
+  var values = [basePrice];
+  for (var vi = 1; vi < 5; vi++){
+    var drift = (rand() - 0.35) * 30; // slight upward bias, like real fare trends
+    values.push(Math.round(Math.max(650, values[vi-1] + drift)));
+  }
+  var pctChange = Math.round(((values[4] - values[0]) / values[0]) * 100);
+  var fareStatusEl = document.getElementById('fareStatusText');
+  if (fareStatusEl){
+    if (pctChange > 2){
+      fareStatusEl.innerHTML = 'Fares are <strong>up about ' + pctChange + '%</strong> over the last month — <strong>booking now</strong> beats waiting, based on this trend.';
+    } else if (pctChange < -2){
+      fareStatusEl.innerHTML = 'Fares are <strong>down about ' + Math.abs(pctChange) + '%</strong> over the last month — a good time to book if you\'re ready.';
+    } else {
+      fareStatusEl.innerHTML = 'Fares have stayed <strong>roughly flat</strong> over the last month — no urgency either way, but prices rarely drop closer to the date.';
+    }
+  }
   var TODAY_INDEX = values.length - 1;
   var svgNS = "http://www.w3.org/2000/svg";
   var chart = document.getElementById('flightChart');
